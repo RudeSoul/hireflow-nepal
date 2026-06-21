@@ -3,6 +3,8 @@ import cors from "cors";
 
 import jobRoutes from "./routes/job.routes.js";
 
+import { errorHandler } from "./middleware/error.middleware.js";
+
 const app = express();
 
 app.use(cors());
@@ -16,5 +18,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/jobs", jobRoutes);
+
+app.use(errorHandler);
 
 export default app;
