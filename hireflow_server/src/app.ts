@@ -5,6 +5,10 @@ import jobRoutes from "./routes/job.routes.js";
 
 import { errorHandler } from "./middleware/error.middleware.js";
 
+import { authMiddleware } from "./middleware/auth.middleware.js";
+
+import { login } from "./controllers/job.controller.js";
+
 const app = express();
 
 app.use(cors());
@@ -18,6 +22,16 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/jobs", jobRoutes);
+
+// test route to check auth middleware
+app.get("/me", authMiddleware, (req, res) => {
+  res.json({
+    success: true,
+    user: req.user,
+  });
+});
+
+app.post("/login", login);
 
 app.use(errorHandler);
 

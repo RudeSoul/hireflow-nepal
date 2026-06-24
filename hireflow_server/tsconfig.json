@@ -14,7 +14,9 @@
 
     "forceConsistentCasingInFileNames": true,
 
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+
+    "typeRoots": ["./src/types", "./node_modules/@types"]
   },
 
   "include": ["src"],
