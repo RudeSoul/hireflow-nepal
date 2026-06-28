@@ -1,0 +1,34 @@
+import { supabase } from "../db/supabase.js";
+import { Company, UpdateCompanyDto } from "../types/company.types.js";
+
+export const getCompanyById = async (companyId: string): Promise<Company> => {
+  const { data, error } = await supabase
+    .from("companies")
+    .select("*")
+    .eq("id", companyId)
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+};
+
+export const updateCompany = async (
+  companyId: string,
+  payload: UpdateCompanyDto,
+): Promise<Company> => {
+  const { data, error } = await supabase
+    .from("companies")
+    .update(payload)
+    .eq("id", companyId)
+    .select()
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+};

@@ -8,6 +8,7 @@ import { errorHandler } from "./middleware/error.middleware.js";
 import { authMiddleware } from "./middleware/auth.middleware.js";
 
 import { login } from "./controllers/job.controller.js";
+import companyRoutes from "./routes/company.routes.js";
 
 const app = express();
 
@@ -22,8 +23,9 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/jobs", jobRoutes);
+app.use("/api/company", companyRoutes);
 
-// test route to check auth middleware
+// test route to check auth middleware -- start
 app.get("/me", authMiddleware, (req, res) => {
   res.json({
     success: true,
@@ -32,6 +34,8 @@ app.get("/me", authMiddleware, (req, res) => {
 });
 
 app.post("/login", login);
+
+// test route to check auth middleware -- end
 
 app.use(errorHandler);
 
