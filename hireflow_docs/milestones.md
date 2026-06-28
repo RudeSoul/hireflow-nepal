@@ -1,11 +1,11 @@
 # Milestone 1
 
-Authentication
-Company Workspace
-Job CRUD
-Career Page
-Apply Flow
-Pipeline Board
+Completed:
 
-Target:
-First internal demo
+- Backend foundation
+- Jobs CRUD
+- Tenant foundation
+
+Git Tag:
+
+v0.1.0
