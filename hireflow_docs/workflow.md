@@ -19,3 +19,21 @@
 8. Commit
    ↓
 9. Update milestones.md
+
+## I recommend we adopt this process for every feature.
+
+### Definition of Done (DoD) for every feature.
+
+#### For example, a module is only considered complete when:
+
+[x] Database schema (if needed) is finished.
+[x] Types are defined.
+[x] Service layer is implemented.
+[x] Controller is implemented.
+[x] Routes are added.
+[x] Authentication/authorization is applied where required.
+[x] API is manually tested.
+[x] Documentation is updated (api.md, roadmap.md, and any other affected docs).
+[x] Git commit is created.
+
+This gives us a consistent quality bar and makes it much harder to lose track as HireFlow grows.
